@@ -130,6 +130,7 @@ const OrderDelivery = ({route, navigation}) => {
           ref={mapView}
           provider={PROVIDER_GOOGLE}
           initialRegion={region}
+          // customMapStyle={}
           style={{flex: 1}}>
           {/* <MapViewDirections
             origin={fromLocation}
