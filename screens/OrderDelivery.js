@@ -2,16 +2,23 @@ import React from 'react';
 import {View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
-
+import Geolocation from 'react-native-geolocation-service';
 import {COLORS, FONTS, icons, SIZES, GOOGLE_API_KEY} from '../constants';
+import react from 'react';
 
 const OrderDelivery = ({route, navigation}) => {
   const mapView = React.useRef();
 
   const [restaurant, setRestaurant] = React.useState(null);
   const [streetName, setStreetName] = React.useState('');
-  const [fromLocation, setFromLocation] = React.useState(null);
-  const [toLocation, setToLocation] = React.useState(null);
+  const [fromLocation, setFromLocation] = React.useState({
+    latitude: 12.922013443025244,
+    longitude: 77.56766124780178,
+  });
+  const [toLocation, setToLocation] = React.useState({
+    latitude: 12.907013443025244,
+    longitude: 77.5646124780178,
+  });
   const [region, setRegion] = React.useState(null);
 
   const [duration, setDuration] = React.useState(0);
@@ -20,23 +27,55 @@ const OrderDelivery = ({route, navigation}) => {
   React.useEffect(() => {
     let {restaurant, currentLocation} = route.params;
 
-    let fromLoc = currentLocation.gps;
-    let toLoc = restaurant.location;
+    let fromLoc = {
+      latitude: 12.922013443025244,
+      longitude: 77.56766124780178,
+    }; //currentLocation.gps;
+    let toLoc = {latitude: 12.907013443025244, longitude: 77.5646124780178}; //restaurant.location;
     let street = currentLocation.streetName;
 
+    // let mapRegion = {
+    //   latitude: (fromLoc.latitude + toLoc.latitude) / 2,
+    //   longitude: (fromLoc.longitude + toLoc.longitude) / 2,
+    //   latitudeDelta: Math.abs(fromLoc.latitude - toLoc.latitude) * 2,
+    //   longitudeDelta: Math.abs(fromLoc.longitude - toLoc.longitude) * 2,
+    // };
+    // console.log(toLoc);
+    setRestaurant(restaurant);
+    setStreetName(street);
+    setFromLocation(fromLoc);
+    setToLocation(toLoc);
+    setTimeout(() => {
+      Geolocation.getCurrentPosition(
+        position => {
+          setToLocation({
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+          });
+        },
+        error => {
+          Alert.alert(error.message.toString());
+        },
+        {
+          showLocationDialog: true,
+          enableHighAccuracy: true,
+          timeout: 20000,
+          maximumAge: 0,
+        },
+      );
+    }, 0);
+  }, []);
+
+  react.useEffect(() => {
     let mapRegion = {
       latitude: (fromLoc.latitude + toLoc.latitude) / 2,
       longitude: (fromLoc.longitude + toLoc.longitude) / 2,
       latitudeDelta: Math.abs(fromLoc.latitude - toLoc.latitude) * 2,
       longitudeDelta: Math.abs(fromLoc.longitude - toLoc.longitude) * 2,
     };
-
-    setRestaurant(restaurant);
-    setStreetName(street);
-    setFromLocation(fromLoc);
-    setToLocation(toLoc);
     setRegion(mapRegion);
-  }, []);
+    console.log(mapRegion);
+  }, [toLocation]);
 
   function calculateAngle(coordinates) {
     let startLat = coordinates[0]['latitude'];
@@ -74,9 +113,13 @@ const OrderDelivery = ({route, navigation}) => {
   }
 
   function renderMap() {
-    console.log(fromLocation);
     const destinationMarker = () => (
-      <Marker coordinate={toLocation}>
+      <Marker
+        coordinate={toLocation}
+        draggable
+        onDragEnd={e => {
+          console.log(e.nativeEvent);
+        }}>
         <View
           style={{
             height: 40,
@@ -84,7 +127,7 @@ const OrderDelivery = ({route, navigation}) => {
             borderRadius: 20,
             alignItems: 'center',
             justifyContent: 'center',
-            backgroundColor: COLORS.white,
+            // backgroundColor: COLORS.white,
           }}>
           <View
             style={{
@@ -93,14 +136,14 @@ const OrderDelivery = ({route, navigation}) => {
               borderRadius: 15,
               alignItems: 'center',
               justifyContent: 'center',
-              backgroundColor: COLORS.primary,
+              // backgroundColor: COLORS.primary,
             }}>
             <Image
               source={icons.pin}
               style={{
-                width: 25,
-                height: 25,
-                tintColor: COLORS.white,
+                width: 36,
+                height: 36,
+                tintColor: COLORS.black,
               }}
             />
           </View>
