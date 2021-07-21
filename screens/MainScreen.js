@@ -3,13 +3,20 @@ import {View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
 import Geolocation from 'react-native-geolocation-service';
-import {COLORS, FONTS, icons, SIZES, GOOGLE_API_KEY} from '../constants';
+import {
+  COLORS,
+  FONTS,
+  images,
+  icons,
+  SIZES,
+  GOOGLE_API_KEY,
+} from '../constants';
 import react from 'react';
 
-const OrderDelivery = ({route, navigation}) => {
+const MainScreen = ({route, navigation}) => {
   const mapView = React.useRef();
 
-  const [restaurant, setRestaurant] = React.useState(null);
+  // const [restaurant, setRestaurant] = React.useState(null);
   const [streetName, setStreetName] = React.useState('');
   const [fromLocation, setFromLocation] = React.useState({
     latitude: 12.922013443025244,
@@ -25,14 +32,12 @@ const OrderDelivery = ({route, navigation}) => {
   const [isReady, setIsReady] = React.useState(false);
   const [angle, setAngle] = React.useState(0);
   React.useEffect(() => {
-    let {restaurant, currentLocation} = route.params;
-
     let fromLoc = {
       latitude: 12.922013443025244,
       longitude: 77.56766124780178,
     }; //currentLocation.gps;
     let toLoc = {latitude: 12.907013443025244, longitude: 77.5646124780178}; //restaurant.location;
-    let street = currentLocation.streetName;
+    let street = 'Bangalore';
 
     // let mapRegion = {
     //   latitude: (fromLoc.latitude + toLoc.latitude) / 2,
@@ -41,7 +46,7 @@ const OrderDelivery = ({route, navigation}) => {
     //   longitudeDelta: Math.abs(fromLoc.longitude - toLoc.longitude) * 2,
     // };
     // console.log(toLoc);
-    setRestaurant(restaurant);
+    // setRestaurant('Pizza Hut');
     setStreetName(street);
     setFromLocation(fromLoc);
     setToLocation(toLoc);
@@ -67,6 +72,11 @@ const OrderDelivery = ({route, navigation}) => {
   }, []);
 
   react.useEffect(() => {
+    let fromLoc = {
+      latitude: 12.922013443025244,
+      longitude: 77.56766124780178,
+    };
+    let toLoc = {latitude: 12.907013443025244, longitude: 77.5646124780178}; //restaurant.location;
     let mapRegion = {
       latitude: (fromLoc.latitude + toLoc.latitude) / 2,
       longitude: (fromLoc.longitude + toLoc.longitude) / 2,
@@ -282,7 +292,7 @@ const OrderDelivery = ({route, navigation}) => {
           <View style={{flexDirection: 'row', alignItems: 'center'}}>
             {/* Avatar */}
             <Image
-              source={restaurant?.courier.avatar}
+              source={images.avatar_1}
               style={{
                 width: 50,
                 height: 50,
@@ -294,7 +304,7 @@ const OrderDelivery = ({route, navigation}) => {
               {/* Name & Rating */}
               <View
                 style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-                <Text style={{...FONTS.h4}}>{restaurant?.courier.name}</Text>
+                <Text style={{...FONTS.h4}}>Rob</Text>
                 <View style={{flexDirection: 'row'}}>
                   <Image
                     source={icons.star}
@@ -305,13 +315,13 @@ const OrderDelivery = ({route, navigation}) => {
                       marginRight: SIZES.padding,
                     }}
                   />
-                  <Text style={{...FONTS.body3}}>{restaurant?.rating}</Text>
+                  <Text style={{...FONTS.body3}}>{4.7}</Text>
                 </View>
               </View>
 
               {/* Restaurant */}
               <Text style={{color: COLORS.darkgray, ...FONTS.body4}}>
-                {restaurant?.name}
+                Pizza Hut
               </Text>
             </View>
           </View>
@@ -333,7 +343,7 @@ const OrderDelivery = ({route, navigation}) => {
                 justifyContent: 'center',
                 borderRadius: 10,
               }}
-              onPress={() => navigation.navigate('Home')}>
+              onPress={() => {}}>
               <Text style={{...FONTS.h4, color: COLORS.white}}>Call</Text>
             </TouchableOpacity>
 
@@ -407,7 +417,7 @@ const OrderDelivery = ({route, navigation}) => {
   );
 };
 
-export default OrderDelivery;
+export default MainScreen;
 
 const styles = StyleSheet.create({
   container: {

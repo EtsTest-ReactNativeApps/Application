@@ -1,5 +1,3 @@
-import Home from './Home';
-import OrderDelivery from './OrderDelivery';
-import Restaurant from './Restaurant';
+import MainScreen from './MainScreen';
 
-export {Home, Restaurant, OrderDelivery};
+export {MainScreen};
