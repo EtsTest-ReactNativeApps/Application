@@ -7,10 +7,12 @@ export const search = require('../assets/icons/search.png');
 export const star = require('../assets/icons/star.png');
 export const user = require('../assets/icons/user.png');
 export const car = require('../assets/icons/car.png');
+export const metamask = require('../assets/icons/metamask.png');
 
 export default {
   back,
   car,
+  metamask,
   like,
   nearby,
   pin,

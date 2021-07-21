@@ -5,7 +5,6 @@ import {NavigationContainer} from '@react-navigation/native';
 import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 
 import {MainScreen} from './screens';
-import Tabs from './navigation/tabs';
 
 const Stack = createStackNavigator();
 

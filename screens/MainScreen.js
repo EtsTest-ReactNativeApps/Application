@@ -84,7 +84,7 @@ const MainScreen = ({route, navigation}) => {
       longitudeDelta: Math.abs(fromLoc.longitude - toLoc.longitude) * 2,
     };
     setRegion(mapRegion);
-    console.log(mapRegion);
+    // console.log(mapRegion);
   }, [toLocation]);
 
   function calculateAngle(coordinates) {
