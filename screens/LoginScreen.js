@@ -8,9 +8,17 @@ import {
   StyleSheet,
   Button,
   Alert,
+  TouchableNativeFeedback,
 } from 'react-native';
 import {CommonActions} from '@react-navigation/native';
-
+import {
+  COLORS,
+  FONTS,
+  images,
+  icons,
+  SIZES,
+  GOOGLE_API_KEY,
+} from '../constants';
 import {
   GoogleSigninButton,
   GoogleSignin,
@@ -47,7 +55,7 @@ const Login = ({navigation}) => {
               index: 1,
               routes: [
                 {
-                  name: 'MainScreen',
+                  name: 'Wallet',
                   // params: { user: 'jane' },
                 },
               ],
@@ -76,7 +84,7 @@ const Login = ({navigation}) => {
           index: 1,
           routes: [
             {
-              name: 'MainScreen',
+              name: 'Wallet',
               // params: { user: 'jane' },
             },
           ],
@@ -121,19 +129,55 @@ const Login = ({navigation}) => {
   };
   return (
     <>
-      <StatusBar barStyle="dark-content" backgroundColor="#cbd0f0" />
+      <StatusBar barStyle="light-content" backgroundColor="#201F1B" />
       {isLoading ? (
         <View style={styles.splashScreen}>
-          <Text style={styles.bento}>Bento</Text>
+          <Text style={styles.bento}>Nakamoto Sans</Text>
         </View>
       ) : (
         <View style={styles.container}>
-          <GoogleSigninButton
-            style={styles.signInButton}
-            size={GoogleSigninButton.Size.Wide}
-            color={GoogleSigninButton.Color.Dark}
-            onPress={() => signIn()}
+          <StatusBar
+            backgroundColor="#201F1B"
+            animated
+            barStyle="light-content"
           />
+          <Text style={styles.heading}>LOGIN</Text>
+          <Image
+            source={images.loginImage}
+            style={{
+              marginTop: 20,
+              width: '98%',
+              height: '80%',
+              resizeMode: 'contain',
+            }}
+          />
+          <Text style={styles.subText}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor
+          </Text>
+
+          <View
+            style={{
+              height: 65,
+              width: '79%',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              backgroundColor: '#FECA5D',
+              borderRadius: 7,
+            }}>
+            <TouchableNativeFeedback
+              onPress={() => {
+                signIn();
+              }}>
+              <View style={styles.button}>
+                <Image
+                  source={icons.metamask}
+                  style={{height: 45, width: 45, resizeMode: 'contain'}}
+                />
+                <Text style={styles.buttonText}>Sign In with google</Text>
+              </View>
+            </TouchableNativeFeedback>
+          </View>
         </View>
       )}
     </>
@@ -141,29 +185,59 @@ const Login = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    backgroundColor: '#cbd0f0',
-    alignItems: 'center',
-    fontSize: 19,
-  },
-
   statusContainer: {
     marginVertical: 20,
   },
   splashScreen: {
     flex: 1,
-    backgroundColor: '#cbd0f0',
+    backgroundColor: '#1C1C19',
     justifyContent: 'center',
     alignItems: 'center',
   },
   bento: {
-    fontFamily: 'Quicksand-Bold',
-    fontWeight: '100',
-    fontSize: 32,
-    color: 'white',
+    fontFamily: 'MPLUSRounded1c-Bold',
+    fontSize: 40,
+    color: '#FECA5D',
+    textTransform: 'uppercase',
     letterSpacing: 1,
+  },
+  container: {
+    backgroundColor: '#201F1B',
+    flex: 1,
+    alignItems: 'center',
+  },
+  heading: {
+    fontFamily: 'MPLUSRounded1c-Bold',
+    position: 'absolute',
+    top: 65,
+    left: '10%',
+    zIndex: 1,
+    fontSize: 38,
+    color: '#201f1b',
+    letterSpacing: 4,
+  },
+  subText: {
+    fontFamily: 'MPLUSRounded1c-Regular',
+    color: 'white',
+    fontSize: 19,
+    top: -10,
+    marginBottom: 10,
+  },
+  button: {
+    height: 65,
+    width: '100%',
+    paddingHorizontal: 15,
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#FECA5D',
+    borderRadius: 7,
+  },
+  buttonText: {
+    fontFamily: 'MPLUSRounded1c-Medium',
+    color: '#372D35',
+    fontSize: 23,
+    textTransform: 'uppercase',
   },
 });
 

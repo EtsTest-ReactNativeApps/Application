@@ -6,6 +6,8 @@ import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 
 import {MainScreen} from './screens';
 import Login from './screens/LoginScreen';
+import Wallet from './screens/WalletScreen';
+import OnBoarding from './screens/OnBoardingScreen';
 
 const Stack = createStackNavigator();
 
@@ -16,8 +18,8 @@ const App = () => {
         screenOptions={{headerShown: false}}
         initialRouteName={'Login'}>
         <Stack.Screen name="Login" component={Login} />
-        {/*<Stack.Screen name="Wallet" component={WalletScreen} />
-        <Stack.Screen name="OnBoarding" component={OnBoardingScreen} /> */}
+        <Stack.Screen name="Wallet" component={Wallet} />
+        <Stack.Screen name="OnBoarding" component={OnBoarding} />
         <Stack.Screen name="MainScreen" component={MainScreen} />
       </Stack.Navigator>
     </NavigationContainer>
