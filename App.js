@@ -5,6 +5,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 
 import {MainScreen} from './screens';
+import Login from './screens/LoginScreen';
 
 const Stack = createStackNavigator();
 
@@ -13,9 +14,9 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{headerShown: false}}
-        initialRouteName={'MainScreen'}>
-        {/* <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="Wallet" component={WalletScreen} />
+        initialRouteName={'Login'}>
+        <Stack.Screen name="Login" component={Login} />
+        {/*<Stack.Screen name="Wallet" component={WalletScreen} />
         <Stack.Screen name="OnBoarding" component={OnBoardingScreen} /> */}
         <Stack.Screen name="MainScreen" component={MainScreen} />
       </Stack.Navigator>

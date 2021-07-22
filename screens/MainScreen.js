@@ -1,5 +1,12 @@
 import React from 'react';
-import {View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  StyleSheet,
+  Alert,
+} from 'react-native';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
 import Geolocation from 'react-native-geolocation-service';
@@ -57,6 +64,7 @@ const MainScreen = ({route, navigation}) => {
             latitude: position.coords.latitude,
             longitude: position.coords.longitude,
           });
+          console.log(position);
         },
         error => {
           Alert.alert(error.message.toString());

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1034508305582",
+    "project_id": "nakamoto-sans",
+    "storage_bucket": "nakamoto-sans.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1034508305582:android:d42e1070d223973939593f",
+        "android_client_info": {
+          "package_name": "com.sans.nakamoto"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1034508305582-0f4rl638rgcmhns91fcqdh600pp21ngc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sans.nakamoto",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "1034508305582-arvfrnt5tnn5icpp9d8ho04adkq2a5tn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7dysgELUk4vQfYeE9LghX4YDkuptAOU8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1034508305582-arvfrnt5tnn5icpp9d8ho04adkq2a5tn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
