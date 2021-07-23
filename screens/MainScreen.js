@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   Alert,
+  StatusBar,
 } from 'react-native';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
@@ -138,34 +139,14 @@ const MainScreen = ({route, navigation}) => {
         onDragEnd={e => {
           console.log(e.nativeEvent);
         }}>
-        <View
+        <Image
+          source={icons.pin}
           style={{
-            height: 40,
-            width: 40,
-            borderRadius: 20,
-            alignItems: 'center',
-            justifyContent: 'center',
-            // backgroundColor: COLORS.white,
-          }}>
-          <View
-            style={{
-              height: 30,
-              width: 30,
-              borderRadius: 15,
-              alignItems: 'center',
-              justifyContent: 'center',
-              // backgroundColor: COLORS.primary,
-            }}>
-            <Image
-              source={icons.pin}
-              style={{
-                width: 36,
-                height: 36,
-                tintColor: COLORS.black,
-              }}
-            />
-          </View>
-        </View>
+            width: 36,
+            height: 36,
+            tintColor: '#FECA5D',
+          }}
+        />
       </Marker>
     );
 
@@ -187,6 +168,12 @@ const MainScreen = ({route, navigation}) => {
 
     return (
       <View style={{flex: 1}}>
+        <StatusBar
+          translucent={true}
+          // barStyle="light-content"
+          backgroundColor="#201F1B"
+        />
+
         <MapView
           ref={mapView}
           provider={PROVIDER_GOOGLE}
@@ -321,7 +308,7 @@ const MainScreen = ({route, navigation}) => {
             paddingVertical: SIZES.padding,
             paddingHorizontal: SIZES.padding * 2,
             borderRadius: SIZES.radius,
-            backgroundColor: COLORS.white,
+            backgroundColor: '#FECA5D',
           }}>
           <Image
             source={icons.red_pin}
@@ -333,10 +320,16 @@ const MainScreen = ({route, navigation}) => {
           />
 
           <View style={{flex: 1}}>
-            <Text style={{...FONTS.body3}}>{streetName}</Text>
+            <Text
+              style={{
+                fontFamily: 'MPLUSRounded1c-Regular',
+                fontSize: 19,
+                letterSpacing: 0.75,
+                color: '#444444',
+              }}>
+              Dayananda Sagar, Banashankri
+            </Text>
           </View>
-
-          <Text style={{...FONTS.body3}}>{Math.ceil(duration)} mins</Text>
         </View>
       </View>
     );
@@ -358,43 +351,92 @@ const MainScreen = ({route, navigation}) => {
             width: SIZES.width * 0.9,
             paddingVertical: SIZES.padding * 3,
             paddingHorizontal: SIZES.padding * 2,
-            borderRadius: SIZES.radius,
-            backgroundColor: COLORS.white,
+            borderRadius: 7,
+            backgroundColor: '#FECA5D',
+            height: 200,
           }}>
-          <View style={{flexDirection: 'row', alignItems: 'center'}}>
-            {/* Avatar */}
+          <View
+            style={{
+              height: 85,
+              width: 85,
+              backgroundColor: '#FECA5D',
+              position: 'relative',
+              top: -80,
+              left: 0,
+              borderRadius: 50,
+              borderWidth: 2,
+              borderColor: '#444444',
+              justifyContent: 'center',
+              alignItems: 'center',
+              overflow: 'hidden',
+            }}>
             <Image
-              source={images.avatar_1}
-              style={{
-                width: 50,
-                height: 50,
-                borderRadius: 25,
-              }}
+              source={images.avatar_4}
+              style={{height: 90, width: 90, marginTop: 10}}
             />
+          </View>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'flex-end',
+              position: 'relative',
+              top: -75,
+            }}>
+            {/* Avatar */}
 
             <View style={{flex: 1, marginLeft: SIZES.padding}}>
               {/* Name & Rating */}
               <View
                 style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-                <Text style={{...FONTS.h4}}>Rob</Text>
-                <View style={{flexDirection: 'row'}}>
-                  <Image
-                    source={icons.star}
-                    style={{
-                      width: 18,
-                      height: 18,
-                      tintColor: COLORS.primary,
-                      marginRight: SIZES.padding,
-                    }}
-                  />
-                  <Text style={{...FONTS.body3}}>{4.7}</Text>
-                </View>
+                <Text
+                  style={{
+                    color: '#201f1b',
+                    fontFamily: 'MPLUSRounded1c-ExtraBold',
+                    fontSize: 23,
+                    letterSpacing: 0.75,
+                  }}>
+                  Mr. Nakamoto
+                </Text>
+
+                <Text
+                  style={{
+                    ...FONTS.body3,
+                    color: '#201f1b',
+                    fontFamily: 'MPLUSRounded1c-ExtraBold',
+                    fontSize: 23,
+                    paddingTop: 11,
+                    letterSpacing: 1,
+                  }}>
+                  JK 4093
+                </Text>
               </View>
 
               {/* Restaurant */}
-              <Text style={{color: COLORS.darkgray, ...FONTS.body4}}>
-                Pizza Hut
-              </Text>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                  marginTop: 10,
+                }}>
+                <Text
+                  style={{
+                    color: '#444444',
+                    fontFamily: 'MPLUSRounded1c-Medium',
+                    fontSize: 19,
+                    letterSpacing: 1,
+                  }}>
+                  (4.7★)
+                </Text>
+                <Text
+                  style={{
+                    color: '#444444',
+                    fontFamily: 'MPLUSRounded1c-Medium',
+                    fontSize: 21,
+                    letterSpacing: 1,
+                  }}>
+                  Ford Fiesta
+                </Text>
+              </View>
             </View>
           </View>
 
@@ -404,32 +446,52 @@ const MainScreen = ({route, navigation}) => {
               flexDirection: 'row',
               marginTop: SIZES.padding * 2,
               justifyContent: 'space-between',
+              position: 'relative',
+              top: -75,
             }}>
             <TouchableOpacity
               style={{
                 flex: 1,
                 height: 50,
                 marginRight: 10,
-                backgroundColor: COLORS.primary,
+                backgroundColor: '#756F6F',
                 alignItems: 'center',
                 justifyContent: 'center',
-                borderRadius: 10,
+                borderRadius: 7,
               }}
-              onPress={() => {}}>
-              <Text style={{...FONTS.h4, color: COLORS.white}}>Call</Text>
+              onPress={() => {
+                navigation.goBack();
+              }}>
+              <Text
+                style={{
+                  fontFamily: 'MPLUSRounded1c-Medium',
+                  fontSize: 21,
+                  color: '#feca5d',
+                  letterSpacing: 2.5,
+                }}>
+                CANCEL
+              </Text>
             </TouchableOpacity>
 
             <TouchableOpacity
               style={{
                 flex: 1,
                 height: 50,
-                backgroundColor: COLORS.secondary,
+                backgroundColor: '#25241D',
                 alignItems: 'center',
                 justifyContent: 'center',
-                borderRadius: 10,
+                borderRadius: 7,
               }}
-              onPress={() => navigation.goBack()}>
-              <Text style={{...FONTS.h4, color: COLORS.white}}>Cancel</Text>
+              onPress={() => {}}>
+              <Text
+                style={{
+                  fontFamily: 'MPLUSRounded1c-Medium',
+                  fontSize: 21,
+                  color: '#feca5d',
+                  letterSpacing: 2.5,
+                }}>
+                CALL
+              </Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -443,7 +505,7 @@ const MainScreen = ({route, navigation}) => {
         style={{
           position: 'absolute',
           bottom: SIZES.height * 0.35,
-          right: SIZES.padding * 2,
+          right: SIZES.padding,
           width: 60,
           height: 130,
           justifyContent: 'space-between',
@@ -451,10 +513,10 @@ const MainScreen = ({route, navigation}) => {
         {/* Zoom In */}
         <TouchableOpacity
           style={{
-            width: 60,
-            height: 60,
+            width: 50,
+            height: 50,
             borderRadius: 30,
-            backgroundColor: COLORS.white,
+            backgroundColor: '#FECA5D',
             alignItems: 'center',
             justifyContent: 'center',
           }}
@@ -465,10 +527,10 @@ const MainScreen = ({route, navigation}) => {
         {/* Zoom Out */}
         <TouchableOpacity
           style={{
-            width: 60,
-            height: 60,
+            width: 50,
+            height: 50,
             borderRadius: 30,
-            backgroundColor: COLORS.white,
+            backgroundColor: '#FECA5D',
             alignItems: 'center',
             justifyContent: 'center',
           }}

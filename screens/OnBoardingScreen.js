@@ -6,7 +6,10 @@ import {
   TouchableNativeFeedback,
   Image,
   TextInput,
+  StatusBar,
 } from 'react-native';
+// import mainConfig from '../api/mainConfig';
+import axios from 'axios';
 import {CommonActions} from '@react-navigation/native';
 import {
   COLORS,
@@ -16,9 +19,16 @@ import {
   SIZES,
   GOOGLE_API_KEY,
 } from '../constants';
+
 const OnBoarding = ({navigation, route}) => {
+  React.useEffect(() => {
+    axios
+      .get(`https://jsonplaceholder.typicode.com/users/1`)
+      .then(res => console.log(res));
+  }, []);
   return (
     <View style={styles.container}>
+      <StatusBar barStyle="light-content" backgroundColor="#201F1B" />
       <Text style={styles.heading}>On Boarding</Text>
       <View
         style={{
@@ -144,7 +154,7 @@ const OnBoarding = ({navigation, route}) => {
                 index: 1,
                 routes: [
                   {
-                    name: 'MainScreen',
+                    name: 'Wallet',
                     driver: true,
                   },
                 ],
