@@ -9,6 +9,8 @@ import {
   Button,
   Alert,
   TouchableNativeFeedback,
+  TouchableOpacity,
+  Pressable,
 } from 'react-native';
 import {CommonActions} from '@react-navigation/native';
 import {
@@ -44,7 +46,7 @@ const Login = ({navigation}) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const [isDriver, setIsDriver] = useState(false);
   const getCurrentUserInfo = async () => {
     try {
       const userInfo = await GoogleSignin.signInSilently();
@@ -56,7 +58,7 @@ const Login = ({navigation}) => {
               routes: [
                 {
                   name: 'Wallet',
-                  // params: { user: 'jane' },
+                  params: userInfo.user,
                 },
               ],
             }),
@@ -84,8 +86,9 @@ const Login = ({navigation}) => {
           index: 1,
           routes: [
             {
-              name: 'Wallet',
-              // params: { user: 'jane' },
+              name: isDriver ? 'OnBoarding' : 'Wallet',
+              params: userInfo.user,
+              driver: isDriver,
             },
           ],
         }),
@@ -151,10 +154,35 @@ const Login = ({navigation}) => {
               resizeMode: 'contain',
             }}
           />
-          <Text style={styles.subText}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor
-          </Text>
+          <Pressable
+            onPress={() => {
+              setIsDriver(!isDriver);
+            }}
+            style={{alignSelf: 'flex-start'}}>
+            <View style={styles.selector}>
+              <View
+                style={{
+                  height: 22,
+                  width: 22,
+                  borderRadius: 20,
+                  marginRight: 10,
+                  borderWidth: 2,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  borderColor: '#FECA5D',
+                }}>
+                <View
+                  style={{
+                    height: 13,
+                    width: 13,
+                    borderRadius: 20,
+
+                    backgroundColor: isDriver ? '#FECA5D' : 'transparent',
+                  }}></View>
+              </View>
+              <Text style={styles.subText}>Are you a driver?</Text>
+            </View>
+          </Pressable>
 
           <View
             style={{
@@ -216,12 +244,18 @@ const styles = StyleSheet.create({
     color: '#201f1b',
     letterSpacing: 4,
   },
+  selector: {
+    flexDirection: 'row',
+    marginBottom: 25,
+    alignItems: 'center',
+    marginLeft: 40,
+    alignSelf: 'flex-start',
+  },
   subText: {
     fontFamily: 'MPLUSRounded1c-Regular',
     color: 'white',
     fontSize: 19,
-    top: -10,
-    marginBottom: 10,
+    // top: -10,
   },
   button: {
     height: 65,

@@ -15,7 +15,11 @@ import {
   SIZES,
   GOOGLE_API_KEY,
 } from '../constants';
+import {CommonActions} from '@react-navigation/native';
+
 const Wallet = ({navigation, route}) => {
+  console.log(route.params);
+  route.driver && console.log(route.driver);
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor="#201F1B" animated barStyle="light-content" />
@@ -45,7 +49,16 @@ const Wallet = ({navigation, route}) => {
         }}>
         <TouchableNativeFeedback
           onPress={() => {
-            navigation.navigate('OnBoarding');
+            navigation.dispatch(
+              CommonActions.reset({
+                index: 1,
+                routes: [
+                  {
+                    name: 'MainScreen',
+                  },
+                ],
+              }),
+            );
           }}>
           <View style={styles.button}>
             <Image
