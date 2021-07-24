@@ -179,7 +179,7 @@ const MainScreen = ({ route, navigation }) => {
         )
 
         return (
-            <View style={{ flex: 1 }}>
+            <View style={{ flex: 1, backgroundColor: '#201F1B' }}>
                 <StatusBar
                     translucent={true}
                     // barStyle="light-content"

@@ -10,6 +10,7 @@ import Wallet from './screens/WalletScreen'
 import OnBoarding from './screens/OnBoardingScreen'
 import Loading from './screens/LoadingScreen'
 import LoadingDriver from './screens/LoadingDriver'
+import CustomerList from './screens/CustomerListScreen'
 
 const Stack = createStackNavigator()
 
@@ -26,6 +27,7 @@ const App = () => {
                 <Stack.Screen name='MainScreen' component={MainScreen} />
                 <Stack.Screen name='Loading' component={Loading} />
                 <Stack.Screen name='LoadingDriver' component={LoadingDriver} />
+                <Stack.Screen name='CustomerList' component={CustomerList} />
             </Stack.Navigator>
         </NavigationContainer>
     )

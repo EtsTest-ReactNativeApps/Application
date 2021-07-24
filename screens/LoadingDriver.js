@@ -1,5 +1,12 @@
 import React from 'react'
-import { Image, Pressable, StyleSheet, Text, View } from 'react-native'
+import {
+    Image,
+    Pressable,
+    StatusBar,
+    StyleSheet,
+    Text,
+    View,
+} from 'react-native'
 import { images } from '../constants'
 import { CommonActions } from '@react-navigation/native'
 
@@ -14,6 +21,8 @@ const LoadingDriver = ({ navigation, route }) => {
                 flex: 1,
             }}
         >
+            <StatusBar barStyle='light-content' backgroundColor='#201F1B' />
+
             <View
                 style={{
                     height: 120,
@@ -31,21 +40,7 @@ const LoadingDriver = ({ navigation, route }) => {
                     style={{ height: 100, width: 100, resizeMode: 'contain' }}
                 />
             </View>
-            <Pressable
-                onPress={() =>
-                    navigation.dispatch(
-                        CommonActions.reset({
-                            index: 1,
-                            routes: [
-                                {
-                                    name: 'MainScreen',
-                                    params: { ride: true },
-                                },
-                            ],
-                        })
-                    )
-                }
-            >
+            <Pressable onPress={() => navigation.navigate('CustomerList')}>
                 <Text
                     style={{
                         fontFamily: 'MPLUSRounded1c-Bold',
