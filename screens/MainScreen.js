@@ -169,7 +169,7 @@ const MainScreen = ({ route, navigation }) => {
                 rotation={angle}
             >
                 <Image
-                    source={icons.car}
+                    source={icons.suv}
                     style={{
                         width: 40,
                         height: 40,
@@ -355,6 +355,7 @@ const MainScreen = ({ route, navigation }) => {
                         }}
                         placeholder='WHERE TO?'
                         // onChangeText={text => console.log(text)}
+                        autoCorrect={false}
                         onEndEditing={() => navigation.navigate('Loading')}
                         // onChangeText={text => ingredientInput(text, key)}
                     />

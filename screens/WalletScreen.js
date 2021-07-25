@@ -6,6 +6,7 @@ import {
     View,
     Image,
     TouchableNativeFeedback,
+    TextInput,
 } from 'react-native'
 import {
     COLORS,
@@ -37,21 +38,45 @@ const Wallet = ({ navigation, route }) => {
                     resizeMode: 'contain',
                 }}
             />
-            <Text style={styles.subText}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor
-            </Text>
-
             <View
                 style={{
-                    height: 65,
-                    width: '79%',
+                    position: 'relative',
+                    flexDirection: 'row',
                     justifyContent: 'space-between',
                     alignItems: 'center',
-                    backgroundColor: '#FECA5D',
-                    borderRadius: 7,
                 }}
             >
+                <View
+                    style={{
+                        height: 65,
+                        width: '79%',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        backgroundColor: '#FECA5D',
+                        borderRadius: 7,
+                        marginRight: 10,
+                    }}
+                >
+                    <TouchableNativeFeedback>
+                        <View style={styles.button}>
+                            <Image
+                                source={icons.metamask}
+                                style={{
+                                    height: 40,
+                                    width: 40,
+                                    resizeMode: 'contain',
+                                    marginRight: 10,
+                                }}
+                            />
+                            <TextInput
+                                style={styles.buttonText}
+                                placeholder='CONNECT METAMASK'
+                                // value={input.ingredient}
+                                // onChangeText={text => ingredientInput(text, key)}
+                            />
+                        </View>
+                    </TouchableNativeFeedback>
+                </View>
                 <TouchableNativeFeedback
                     onPress={() => {
                         !isDriver
@@ -79,16 +104,17 @@ const Wallet = ({ navigation, route }) => {
                               )
                     }}
                 >
-                    <View style={styles.button}>
+                    <View
+                        style={{
+                            backgroundColor: '#FECA5D',
+                            borderRadius: 7,
+                            height: 55,
+                        }}
+                    >
                         <Image
-                            source={icons.metamask}
-                            style={{
-                                height: 45,
-                                width: 45,
-                                resizeMode: 'contain',
-                            }}
+                            source={require('../assets/icons/check.png')}
+                            style={{ width: 40, height: 40, margin: 7 }}
                         />
-                        <Text style={styles.buttonText}>CONNECT METAMASK</Text>
                     </View>
                 </TouchableNativeFeedback>
             </View>
@@ -125,7 +151,7 @@ const styles = StyleSheet.create({
         height: 65,
         width: '100%',
         paddingHorizontal: 15,
-        justifyContent: 'space-between',
+        // justifyContent: 'space-between',
         flexDirection: 'row',
         alignItems: 'center',
         backgroundColor: '#FECA5D',
@@ -134,6 +160,7 @@ const styles = StyleSheet.create({
     buttonText: {
         fontFamily: 'MPLUSRounded1c-Medium',
         color: '#372D35',
-        fontSize: 23,
+        fontSize: 22,
+        width: '85%',
     },
 })

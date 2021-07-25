@@ -27,7 +27,8 @@ import {
     statusCodes,
 } from '@react-native-google-signin/google-signin'
 import { firebase } from '@react-native-firebase/auth'
-
+// import Portis from '@portis/web3'
+// import Web3 from 'web3'
 import { WEB_CLIENT_ID } from '../utils/keys'
 
 function configureGoogleSign() {
@@ -47,6 +48,13 @@ const Login = ({ navigation }) => {
     const [isLoading, setIsLoading] = useState(true)
     const [error, setError] = useState(null)
     const [isDriver, setIsDriver] = useState(false)
+    // const portis = new Portis('0aa5066b-7e30-459f-94c9-f397b64a00c6', 'mainnet')
+    // const web3 = new Web3(portis.provider)
+    // web3.eth.getAccounts().then((accounts) => {
+    //     account = accounts[0]
+    //     console.log(account)
+    // })
+
     const getCurrentUserInfo = async () => {
         try {
             const userInfo = await GoogleSignin.signInSilently()
@@ -114,7 +122,7 @@ const Login = ({ navigation }) => {
                 // when play services not available
                 Alert.alert('Play services are not available')
             } else {
-                // some other error
+                // some other erroric
                 Alert.alert('Something else went wrong... ', error.toString())
                 setError(error)
             }
@@ -194,7 +202,7 @@ const Login = ({ navigation }) => {
                     <View
                         style={{
                             height: 65,
-                            width: '79%',
+                            // width: '79%',
                             justifyContent: 'space-between',
                             alignItems: 'center',
                             backgroundColor: '#FECA5D',
@@ -208,11 +216,12 @@ const Login = ({ navigation }) => {
                         >
                             <View style={styles.button}>
                                 <Image
-                                    source={icons.metamask}
+                                    source={require('../assets/icons/google.png')}
                                     style={{
                                         height: 45,
                                         width: 45,
                                         resizeMode: 'contain',
+                                        marginRight: 20,
                                     }}
                                 />
                                 <Text style={styles.buttonText}>
@@ -274,7 +283,7 @@ const styles = StyleSheet.create({
     },
     button: {
         height: 65,
-        width: '100%',
+        // width: '100%',
         paddingHorizontal: 15,
         justifyContent: 'space-between',
         flexDirection: 'row',
