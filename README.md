@@ -37,12 +37,12 @@ vice.
 
 - We have implemented smart contract addressing the issue of storing critical data necessary at different stages of Taxi Hailing and making it verifiable by all stakeholders in dRyver.
 
--We eliminate the existence of middle agency, Thereby completely removing the regulation of salaries of drivers by corporations. And in that earning of the driver is solely dependent on the number of rides.  
+- We eliminate the existence of middle agency, Thereby completely removing the regulation of salaries of drivers by corporations. And in that earning of the driver is solely dependent on the number of rides.  
 
 
 #### Application Workflow Diagram
 ---
-![](screens/workflow.png)
+![](https://cdn.discordapp.com/attachments/855127252101758989/868824925425786890/workflow.jpg)
 
 #### In this application we have Three Contracts
 ---
@@ -99,9 +99,9 @@ cd COntracts/
 	  <td><b>Google AUth</b></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/NakamotoSans/Screens/blob/main/IMG_20210725_143841.jpg" width=400 height=670></td>
-    <td><img src="https://github.com/NakamotoSans/Screens/blob/main/IMG_20210725_145106.jpg" width=400 height=670></td>
-    <td><img src="https://github.com/NakamotoSans/Screens/blob/main/IMG_20210725_145547.jpg" width=400 height=670></td>
+    <td><img src="https://github.com/NakamotoSans/Screens/blob/main/IMG_20210725_143841.jpg" width=320 height=570></td>
+    <td><img src="https://github.com/NakamotoSans/Screens/blob/main/IMG_20210725_145106.jpg" width=320 height=570></td>
+    <td><img src="https://github.com/NakamotoSans/Screens/blob/main/IMG_20210725_145547.jpg" width=320 height=570></td>
   </tr>
 		
   <tr>
@@ -112,9 +112,9 @@ cd COntracts/
   
 	
   <tr>
-    <td><img src="https://github.com/NakamotoSans/Screens/blob/main/Screenshot_2021-07-25-15-06-28-217_com.sans.nakamoto.jpg" width=400 height=670></td>
-    <td><img src="https://github.com/NakamotoSans/Screens/blob/main/IMG_20210725_150003.jpg" width=400 height=670></td>
-    <td><img src="https://github.com/NakamotoSans/Screens/blob/main/IMG_20210725_150640.jpg" width=400 height=670></td>
+    <td><img src="https://github.com/NakamotoSans/Screens/blob/main/Screenshot_2021-07-25-15-06-28-217_com.sans.nakamoto.jpg" width=320 height=570></td>
+    <td><img src="https://github.com/NakamotoSans/Screens/blob/main/IMG_20210725_150003.jpg" width=320 height=570></td>
+    <td><img src="https://github.com/NakamotoSans/Screens/blob/main/IMG_20210725_150640.jpg" width=320 height=570></td>
   </tr>	
 		
   <tr>
@@ -123,14 +123,30 @@ cd COntracts/
 	  <td><b>Ride Confirmed</b></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/NakamotoSans/Screens/blob/main/IMG_20210725_151310.jpg" width=400 height=670></td>	
-    <td><img src="https://github.com/NakamotoSans/Screens/blob/main/Screenshot_2021-07-25-15-06-57-049_com.sans.nakamoto.jpg" width=400 height=670></td>
-    <td><img src="https://github.com/NakamotoSans/Screens/blob/main/IMG_20210725_150832.jpg" width=400 height=670></td>
+    <td><img src="https://github.com/NakamotoSans/Screens/blob/main/IMG_20210725_151310.jpg" width=320 height=570></td>	
+    <td><img src="https://github.com/NakamotoSans/Screens/blob/main/Screenshot_2021-07-25-15-06-57-049_com.sans.nakamoto.jpg" width=320 height=570></td>
+    <td><img src="https://github.com/NakamotoSans/Screens/blob/main/IMG_20210725_150832.jpg" width=320 height=570></td>
     
   </tr>	
  </table>	
 </p>
 
+#### How to use Remix for deploying contracts
+
+Steps to Execute Solidity Smart Contract using Remix IDE
+
+Remix IDE is generally used to compile and run Solidity smart contracts. Below are the steps for the compilation, execution, and debugging of the smart contract. 
+ 
+
+Step 1: First clone our github project from here.Open Remix IDE on any of your browsers, Choose solidity as environment.
+```
+git clone https://github.com/NakamotoSans/Contracts
+cd Contracts
+```
+Step 2:Import the contracts from your local system. Click the Compile button under the Compiler window to compile the contract.
+Step 3: To execute the code, click on the Deploy button under Deploy and Run Transactions window.
+Step 4: After deploying the code click on the method calls under the drop-down of deployed contracts to run the program, and for output, check to click on the drop-down on the console.
+Step 5: For debugging click on the Debug button corresponding to the method call in the console. Here you can check each function call and variable assignments.
 
 
 
