@@ -19,8 +19,11 @@ import {
 import { CommonActions } from '@react-navigation/native'
 
 const Wallet = ({ navigation, route }) => {
-    console.log(route.params)
+    console.log(route.driver)
     const [isDriver, setIsDriver] = React.useState(true)
+    React.useEffect(() => {
+        setIsDriver(route.driver)
+    })
     return (
         <View style={styles.container}>
             <StatusBar

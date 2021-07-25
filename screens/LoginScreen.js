@@ -67,6 +67,7 @@ const Login = ({ navigation }) => {
                               {
                                   name: 'Wallet',
                                   params: userInfo.user,
+                                  driver: false,
                               },
                           ],
                       })
