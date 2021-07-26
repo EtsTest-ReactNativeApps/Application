@@ -120,7 +120,7 @@ Several scandals have emerged out of Uber’s corporate culture as of late. Uber
 **Setting up Ethereum Smart Contract:**
 
 ```
-git clone https://github.com/NakamotoSans/Contracts
+git clone https://github.com/Nakam otoSans/Contracts
 cd COntracts/
 ```
 #### Smart contracts
