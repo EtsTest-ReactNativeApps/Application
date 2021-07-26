@@ -4,47 +4,37 @@ This project showcases the interaction between the commuter and driver during th
 
 dRyver handles the sequence of activities and processes smoothly to make the experiance of travelling seamless.
 
-#### Problems in Existing System
+### Problems in Existing System ⚠💀
 ---
 
--Applications like Uber provide a matching service and apparently decentralize it. 
-This is P2P technology at its finest .
-Or is it? Several scandals have emerged out of {Uber’s corporate culture as of late.
-Uber has become notorious both for its business practices, and for what it incentivi‐
-zes and allows its drivers to do. Uber executive Emil Michael told the company to dig
-up dirt on a particular critical female reporter as well as other opponents. The power
-the company exerts over its drivers has grown from surveillance into possibly preda‐
-tory lending practices. Uber’s “God Mode,” the ability to see all rides happening in
-any location in real time with all social data attached to each rider, has been the sub‐
-ject of controversy on multiple occasions. Drivers, meanwhile, have been known to
-hail Lyft cabs only to cancel them, so that riders would instead choose Uber.
-Despite these concerns, Uber has grown at an exponential rate over the past few years
-and is showing revenue numbers in the billions. It provides a useful service: people
-prefer using a location-aware app to hail a ride over calling a taxi, and it’s safe to
-say the demand for real-time ride-sharing isn’t going away anytime soon. But privacy
-invasion and the vast imbalance of power between a billion-dollar corporation and its
-87 contractors are the negatives of Uber that riders must accept when they use its ser‐
-vice.
+- Applications like Uber provide a matching service and apparently they decentralize it. This is P2P technology at its finest . Or is it? 
+Several scandals have emerged out of Uber’s corporate culture as of late. Uber has become notorious both for its business practices, and for what it incentivizes and allows its drivers to do. 
+
+- An Uber executive told the company to dig up dirt on a particular critical female reporter as well as other opponents. The power the company exerts over its drivers has grown from surveillance into possibly predatory practices. They have the ability to see all rides happening at any location in real time with all social data attached to each rider, And has been the subject of controversy on multiple occasions. 
+
+- Despite these concerns, Uber has grown at an exponential rate over the past few years and is showing revenue numbers in the billions. It provides a useful service: people prefer using a location-aware app to hail a ride over calling a taxi, and it’s safe to say the demand for real-time ride-sharing isn’t going away anytime soon. But privacy invasion and the vast imbalance of power between a billion-dollar corporation and the drivers are the negatives of Uber that riders must accept when they use its service.
 
 
-- Blockchain can solve this by providing immutable and verifiable data sources.
 
 		
  
 
-#### What we are providing?
+### What we are providing 😇
 ---
 
+- We eliminate the existence of middle agency, thereby completely removing the regulation of salaries of drivers by corporations. So, earnings of the driver are solely dependent on the number of rides he/she makes. 
+- All the data is stored on the peer-to-peer decentralized Polygon Matic Chain. This not only ensures complete security, but also a lightning fast experience. Data privacy is maintained by the access specifiers of data members and methods defined in the smart contracts. 
+- We are not only eliminating the middle man, the L2 solution by Polygon gives us a boost in transaction rate. It is also a known fact that data transfer is faster in a mesh network.
 - We have implemented smart contract addressing the issue of storing critical data necessary at different stages of Taxi Hailing and making it verifiable by all stakeholders in dRyver.
 
-- We eliminate the existence of middle agency, Thereby completely removing the regulation of salaries of drivers by corporations. And in that earning of the driver is solely dependent on the number of rides.  
 
 
-#### Application Workflow Diagram
+
+### Application Workflow Diagram 📝
 ---
-![](https://cdn.discordapp.com/attachments/855127252101758989/868824925425786890/workflow.jpg)
+![](https://github.com/NakamotoSans/Screens/blob/main/workflow.png?raw=true)
 
-#### In this application we have Three Contracts
+### Smarts Contracts 😍
 ---
 
 1. User
@@ -59,7 +49,7 @@ vice.
 
 **Customer :** This contract contains methods that allow customers to request a ride.
 
-#### Included Components
+### Included Components
 ---
 -  Solidity (**Ethereum**)
 -  Metamask  (**Ethereum** wallet)
@@ -73,22 +63,8 @@ vice.
 -  Google Map Api
 -  Firebase for Google Auth
 
-#### Prerequisites
----
-- Nodejs v9.10 or above
-- Truffle v4.1.8 (core: 4.1.8) (http://truffleframework.com/docs/getting_started/installation)
-- Solidity v0.4.23
-- Metamask (https://metamask.io) /Ganache Wallet
 
-#### Deployment Steps:
----
-**Setting up Ethereum Smart Contract:**
-
-```
-git clone https://github.com/NakamotoSans/Contracts
-cd COntracts/
-```
-#### UI screenshots of Mobile App:
+### UI screenshots of Mobile App:
 
 <p align="center">	
 <table>
@@ -131,7 +107,23 @@ cd COntracts/
  </table>	
 </p>
 
-#### How to use Remix for deploying contracts
+
+### Prerequisites
+---
+- Nodejs v9.10 or above
+- Truffle v4.1.8 (core: 4.1.8) (http://truffleframework.com/docs/getting_started/installation)
+- Solidity v0.8.0
+- Metamask (https://metamask.io) /Ganache Wallet
+
+### Deployment Steps:
+---
+**Setting up Ethereum Smart Contract:**
+
+```
+git clone https://github.com/NakamotoSans/Contracts
+cd COntracts/
+```
+#### Smart contracts
 
 Steps to Execute Solidity Smart Contract using Remix IDE
 
@@ -147,8 +139,3 @@ Step 2:Import the contracts from your local system. Click the Compile button und
 Step 3: To execute the code, click on the Deploy button under Deploy and Run Transactions window.
 Step 4: After deploying the code click on the method calls under the drop-down of deployed contracts to run the program, and for output, check to click on the drop-down on the console.
 Step 5: For debugging click on the Debug button corresponding to the method call in the console. Here you can check each function call and variable assignments.
-
-
-
-
-
